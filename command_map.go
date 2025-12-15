@@ -11,7 +11,7 @@ func commandMap(cfg *config) error {
 		url = cfg.Next
 	}
 
-	resp, err := pokeapi.GetLocationAreas(url)
+	resp, err := cfg.client.GetLocationAreas(url)
 	if err != nil {
 		return err
 	}
@@ -35,7 +35,7 @@ func commandMapB(cfg *config) error {
 		return nil
 	}
 
-	resp, err := pokeapi.GetLocationAreas(url)
+	resp, err := cfg.client.GetLocationAreas(url)
 	if err != nil {
 		return err
 	}
@@ -53,4 +53,5 @@ func commandMapB(cfg *config) error {
 type config struct {
 	Next     string
 	Previous string
+	client   pokeapi.Client
 }
