@@ -11,6 +11,7 @@ func main() {
             5*time.Second,  // HTTP timeout
             5*time.Second,  // cache interval
         ),
+        caughtPokemon: map[string]pokeapi.Pokemon{},
     }
 
 	startRepl(cfg)

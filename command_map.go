@@ -5,7 +5,7 @@ import (
 	"github.com/richardw55555/pokedexcli/internal/pokeapi"
 )
 
-func commandMap(cfg *config) error {
+func commandMap(cfg *config, args ...string) error {
 	url := "https://pokeapi.co/api/v2/location-area"
 	if cfg.Next != "" {
 		url = cfg.Next
@@ -26,7 +26,7 @@ func commandMap(cfg *config) error {
 	return nil
 }
 
-func commandMapB(cfg *config) error {
+func commandMapB(cfg *config, args ...string) error {
 	url := "https://pokeapi.co/api/v2/location-area"
 	if cfg.Previous != "" {
 		url = cfg.Previous
@@ -51,7 +51,8 @@ func commandMapB(cfg *config) error {
 }
 
 type config struct {
-	Next     string
-	Previous string
-	client   pokeapi.Client
+	Next          string
+	Previous      string
+	client        pokeapi.Client
+	caughtPokemon map[string]pokeapi.Pokemon
 }
